@@ -11,8 +11,8 @@
         <version>5.6.0.RELEASE</version>
     </parent>
 
-    <name>TERASOLUNA Server Framework for Java (5.x) Web Blank Multi Project (MyBatis3)</name>
-    <description>Web Blank Multi Project (MyBatis3) using TERASOLUNA Server Framework for Java (5.x)</description>
+    <name>MongoDB Trial</name>
+    <description>MongoDB Trial</description>
     <url>http://terasoluna.org</url>
     <inceptionYear>2014</inceptionYear>
     <licenses>
@@ -22,10 +22,6 @@
             <distribution>manual</distribution>
         </license>
     </licenses>
-    <organization>
-        <name>TERASOLUNA Framework Team</name>
-        <url>http://terasoluna.org</url>
-    </organization>
     <build>
         <pluginManagement>
             <plugins>
