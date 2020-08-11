@@ -2,31 +2,33 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+    xmlns:mongo="http://www.springframework.org/schema/data/mongo"
     xsi:schemaLocation="
         http://www.springframework.org/schema/jdbc https://www.springframework.org/schema/jdbc/spring-jdbc.xsd
         http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/data/mongo https://www.springframework.org/schema/data/mongo/spring-mongo-2.2.xsd
     ">
 
-    <bean id="dateFactory" class="org.terasoluna.gfw.common.date.jodatime.DefaultJodaTimeDateFactory" />
+<!--    <bean id="dateFactory" class="org.terasoluna.gfw.common.date.jodatime.DefaultJodaTimeDateFactory" />-->
 
-    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
-        destroy-method="close">
-        <property name="driverClassName" value="${database.driverClassName}" />
-        <property name="url" value="${database.url}" />
-        <property name="username" value="${database.username}" />
-        <property name="password" value="${database.password}" />
-        <property name="defaultAutoCommit" value="false" />
-        <property name="maxTotal" value="${cp.maxActive}" />
-        <property name="maxIdle" value="${cp.maxIdle}" />
-        <property name="minIdle" value="${cp.minIdle}" />
-        <property name="maxWaitMillis" value="${cp.maxWait}" />
-    </bean>
+<!--    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"-->
+<!--        destroy-method="close">-->
+<!--        <property name="driverClassName" value="${database.driverClassName}" />-->
+<!--        <property name="url" value="${database.url}" />-->
+<!--        <property name="username" value="${database.username}" />-->
+<!--        <property name="password" value="${database.password}" />-->
+<!--        <property name="defaultAutoCommit" value="false" />-->
+<!--        <property name="maxTotal" value="${cp.maxActive}" />-->
+<!--        <property name="maxIdle" value="${cp.maxIdle}" />-->
+<!--        <property name="minIdle" value="${cp.minIdle}" />-->
+<!--        <property name="maxWaitMillis" value="${cp.maxWait}" />-->
+<!--    </bean>-->
 
-    <jdbc:initialize-database data-source="dataSource"
-        ignore-failures="ALL">
-        <jdbc:script location="classpath:/database/${database}-schema.sql" encoding="UTF-8" />
-        <jdbc:script location="classpath:/database/${database}-dataload.sql" encoding="UTF-8" />
-    </jdbc:initialize-database>
+<!--    <jdbc:initialize-database data-source="dataSource"-->
+<!--        ignore-failures="ALL">-->
+<!--        <jdbc:script location="classpath:/database/${database}-schema.sql" encoding="UTF-8" />-->
+<!--        <jdbc:script location="classpath:/database/${database}-dataload.sql" encoding="UTF-8" />-->
+<!--    </jdbc:initialize-database>-->
 
     <!--  REMOVE THIS LINE IF YOU USE JPA
     <bean id="transactionManager"
@@ -34,9 +36,19 @@
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
           REMOVE THIS LINE IF YOU USE JPA  -->
-    <bean id="transactionManager"
-        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
-        <property name="rollbackOnCommitFailure" value="true" />
+<!--    <bean id="transactionManager"-->
+<!--        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+<!--        <property name="dataSource" ref="dataSource" />-->
+<!--        <property name="rollbackOnCommitFailure" value="true" />-->
+<!--    </bean>-->
+
+    <!-- MongoDB -->
+    <mongo:mongo-client host="localhost" port="27017" />
+    <mongo:db-factory dbname="testdb" mongo-ref="mongoClient"/>
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
     </bean>
+    <mongo:repositories
+            base-package="com.example.domain.mongorepository" mongo-template-ref="mongoTemplate"/>
+
 </beans>
