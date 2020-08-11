@@ -59,6 +59,5 @@
     <mongo:repositories
             base-package="com.example.mongo.domain.repository" mongo-template-ref="mongoTemplate"/>
 
-    <!-- 監査機能有効化 https://stackoverflow.com/questions/40738105/spring-data-mongodb-mongoauditing-cause-illegalargumentexception-unsupporte   -->
 
 </beans>
