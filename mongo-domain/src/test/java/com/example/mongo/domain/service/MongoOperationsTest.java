@@ -52,7 +52,7 @@ public class MongoOperationsTest {
     public void insert_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         Person excepted = createPerson("1");
 
         // -- 実行 --
@@ -70,7 +70,7 @@ public class MongoOperationsTest {
     public void insert_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         Person excepted = createPerson("1");
         mongoOperations.insert(excepted);
 
@@ -90,7 +90,7 @@ public class MongoOperationsTest {
     public void insertAll_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         List<Person> personList = new ArrayList<>();
         personList.add(createPerson("1"));
         personList.add(createPerson("2"));
@@ -113,7 +113,7 @@ public class MongoOperationsTest {
     public void findById_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -135,7 +135,7 @@ public class MongoOperationsTest {
     public void findOne_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -157,7 +157,7 @@ public class MongoOperationsTest {
     public void findOne_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -179,7 +179,7 @@ public class MongoOperationsTest {
     public void findOne_003() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -204,7 +204,7 @@ public class MongoOperationsTest {
     public void find_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -226,7 +226,7 @@ public class MongoOperationsTest {
     public void find_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -248,7 +248,7 @@ public class MongoOperationsTest {
     public void find_003() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -270,7 +270,7 @@ public class MongoOperationsTest {
     public void find_004() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -294,7 +294,7 @@ public class MongoOperationsTest {
     public void find_005() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 new Person("1", "bbb", 1),
                 new Person("2", "aaa", 2),
@@ -323,7 +323,7 @@ public class MongoOperationsTest {
     public void findAll_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -346,7 +346,7 @@ public class MongoOperationsTest {
     public void save_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -369,7 +369,7 @@ public class MongoOperationsTest {
     public void save_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
 
         Person expected = new Person("1", "change", 999);
 
@@ -388,7 +388,7 @@ public class MongoOperationsTest {
     public void updateFirst_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -419,7 +419,7 @@ public class MongoOperationsTest {
     public void updateFirst_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -447,7 +447,7 @@ public class MongoOperationsTest {
     public void updateMulti_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -478,7 +478,7 @@ public class MongoOperationsTest {
     public void updateMulti_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -506,7 +506,7 @@ public class MongoOperationsTest {
     public void upsert_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -537,7 +537,7 @@ public class MongoOperationsTest {
     public void upsert_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -569,7 +569,7 @@ public class MongoOperationsTest {
     public void findAndModify_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -599,7 +599,7 @@ public class MongoOperationsTest {
     public void findAndReplace_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -629,7 +629,7 @@ public class MongoOperationsTest {
     public void findAndReplace_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -661,7 +661,7 @@ public class MongoOperationsTest {
     public void remove_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -689,7 +689,7 @@ public class MongoOperationsTest {
     public void remove_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -719,7 +719,7 @@ public class MongoOperationsTest {
     public void findAndRemove_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -746,7 +746,7 @@ public class MongoOperationsTest {
     public void findAndRemove_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -776,7 +776,7 @@ public class MongoOperationsTest {
     public void findAllAndRemove_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -804,7 +804,7 @@ public class MongoOperationsTest {
     public void findAllAndRemove_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -834,7 +834,7 @@ public class MongoOperationsTest {
     public void findDistinct_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 new Person("1", "same_name", 1),
                 new Person("2", "same_name", 1),
@@ -859,7 +859,7 @@ public class MongoOperationsTest {
     public void count_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -882,7 +882,7 @@ public class MongoOperationsTest {
     public void exist_001() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
@@ -904,7 +904,7 @@ public class MongoOperationsTest {
     public void exist_002() {
 
         // -- 準備 --
-        mongoOperations.dropCollection("Person");
+        mongoOperations.dropCollection("person");
         insertIntoDatabase(
                 createPerson("1"),
                 createPerson("2"),
